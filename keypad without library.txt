@@ -1,0 +1,109 @@
+int c1 = 7, c2 = 6, c3 = 5, c4 = 4;
+int r1 = 13, r2 = 12,r3 = 11, r4 = 10; 
+void setup(){
+  pinMode(c1, INPUT_PULLUP);
+   pinMode(c2, INPUT_PULLUP);
+   pinMode(c3, INPUT_PULLUP);
+   pinMode(c4, INPUT_PULLUP);
+   
+  pinMode(r1, OUTPUT);
+   pinMode(r2, OUTPUT);
+  pinMode(r3, OUTPUT);
+   pinMode(r4, OUTPUT);
+  
+  digitalWrite(r1, HIGH);
+  digitalWrite(r2, HIGH);
+  digitalWrite(r3, HIGH);
+  digitalWrite(r4, HIGH);
+  
+  Serial.begin(38400);
+}
+
+void loop()
+{
+  row1();
+  row2();
+  row3();
+  row4();
+  //Serial.println(" Press any Key to see the value:");
+}
+
+void row1()
+{
+  digitalWrite(r1, LOW);
+  digitalWrite(r2, HIGH);
+  digitalWrite(r3, HIGH);
+  digitalWrite(r4, HIGH);
+  if(digitalRead(c1)== LOW){//pin 5
+    Serial.println("1");
+    delay(600);}
+  else if(digitalRead(c2)== LOW){//pin 4
+    Serial.println("2");
+    delay(600);}
+   else if(digitalRead(c3)== LOW){//pin 3
+    Serial.println("3");
+    delay(600);}
+   else if(digitalRead(c4)== LOW){
+    Serial.println("A");//pin 2
+ 
+    delay(600);}
+}
+void row2(){
+  digitalWrite(r1, HIGH);
+  digitalWrite(r2, LOW);
+  digitalWrite(r3, HIGH);
+  digitalWrite(r4, HIGH);
+  if(digitalRead(c1) == LOW) {
+    Serial.println("4");
+    delay(600);}
+  else if(digitalRead(c2) == LOW) {
+    Serial.println("5");
+    delay(600); }
+  else if(digitalRead(c3) == LOW) {
+    Serial.println("6");
+    delay(600);
+  }
+  else if(digitalRead(c4) == LOW) {
+    Serial.println("B");
+    delay(600);
+  }
+}
+  
+void row3(){
+  digitalWrite(r1, HIGH);
+  digitalWrite(r2, HIGH);
+  digitalWrite(r3, LOW);
+  digitalWrite(r4, HIGH);
+  
+  if(digitalRead(c1) == LOW){
+    Serial.println("7");
+    delay(600);}
+  else if(digitalRead(c2) == LOW) {
+    Serial.println("8");
+    delay(600);}
+  else if(digitalRead(c3) == LOW) {
+    Serial.println("9");
+    
+    delay(600);}
+  else if(digitalRead(c4) == LOW) {
+    Serial.println("C");
+    delay(600);}
+}
+void row4(){
+  digitalWrite(r1, HIGH);
+  digitalWrite(r2, HIGH);
+  digitalWrite(r3, HIGH);
+  digitalWrite(r4, LOW);
+  if(digitalRead(c1) == LOW){
+    Serial.println("*");
+    delay(600);}
+  else if(digitalRead(c2) == LOW) {
+    Serial.println("0");
+      delay(600); }
+  else if(digitalRead(c3) == LOW) {
+    Serial.println("#");
+    delay(600); }
+  else if(digitalRead(c4) == LOW) {
+    Serial.println("D");
+  delay(600);}
+}
